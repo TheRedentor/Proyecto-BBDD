@@ -8,9 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -41,8 +39,7 @@ public class Usuario {
 	@Column (name="apodo_steam")
 	private String apodo_steam;
 	
-	@ManyToMany
-	@JoinColumn (name="id_party")
+	@ManyToMany(mappedBy = "usuario")
 	private List<Party>party;
 
 	
@@ -50,7 +47,6 @@ public class Usuario {
 	 * 
 	 */
 	public Usuario() {
-		super();
 	}
 
 
@@ -193,7 +189,7 @@ public class Usuario {
 	 * @return the party
 	 */
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id_party")
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "id_party")
 	public List<Party> getParty() {
 		return party;
 	}

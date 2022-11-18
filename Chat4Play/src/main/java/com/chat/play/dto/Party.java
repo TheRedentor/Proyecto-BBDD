@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -28,7 +29,10 @@ public class Party {
 	private String nombre;
 	
 	@ManyToMany
-	@JoinColumn(name="id_usuario")
+	@JoinTable(
+			name = "party_usuario",
+			joinColumns= {@JoinColumn(name="id_party")},
+			inverseJoinColumns = {@JoinColumn(name="id_usuario")})
 	private List<Usuario> usuario;
 	
 	@ManyToOne
@@ -83,7 +87,7 @@ public class Party {
 	 * @return the usuario
 	 */
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id_usuario")
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "id_usuario")
 	public List<Usuario> getUsuario() {
 		return usuario;
 	}
