@@ -1,12 +1,19 @@
 package com.chat.play.dto;
 
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="videojuego")
@@ -19,13 +26,18 @@ public class Videojuego {
 	@Column(name="titulo")
 	private String titulo;
 	
+	@OneToMany
+	@JoinColumn(name="id_party")
+	private List<Party> party;
+	
 	public Videojuego() {
 		
 	}
 	
-	public Videojuego(String titulo, Long id) {
+	public Videojuego(String titulo, Long id, List<Party> party) {
 		this.titulo=titulo;
 		this.id_videojuego=id;
+		this.party=party;
 	}
 
 	public Long getId_videojuego() {
@@ -42,6 +54,16 @@ public class Videojuego {
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
+	}
+	
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Party")
+	public List<Party> getParty() {
+		return party;
+	}
+
+	public void setParty(List<Party> party) {
+		this.party = party;
 	}
 
 	@Override
