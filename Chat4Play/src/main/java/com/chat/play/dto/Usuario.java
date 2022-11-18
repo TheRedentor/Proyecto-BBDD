@@ -22,16 +22,22 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_usuario;
+	
 	@Column (name="nombre")
 	private String nombre;
+	
 	@Column (name="apellidos")
 	private String apellidos;
+	
 	@Column (name="apodo")
 	private String apodo;
+	
 	@Column (name="email")
 	private String email;
+	
 	@Column (name="contrasenia")
 	private String contrasenia;
+	
 	@Column (name="apodo_steam")
 	private String apodo_steam;
 	
@@ -60,7 +66,6 @@ public class Usuario {
 	 */
 	public Usuario(Long id_usuario, String nombre, String apellidos, String apodo, String email, String contrasenia,
 			String apodo_steam, List<Party> party) {
-		super();
 		this.id_usuario = id_usuario;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
