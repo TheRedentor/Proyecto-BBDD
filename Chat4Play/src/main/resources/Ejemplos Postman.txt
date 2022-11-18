@@ -1,0 +1,29 @@
+////// PARTY ///////
+{
+    "nombre":"Chat5444",
+    "videojuego":{
+        "id_videojuego":2
+    },
+    "usuario": [{
+        "id_usuario":1
+    },
+    {"id_usuario":2}]
+}
+
+
+/////// USUARIO ///////
+
+{
+    "nombre":"Isaac",
+    "apellidos":"Ejemplo",
+    "apodo":"ISI",
+    "email":"af@hotmail.com",
+    "contrasenia":"123",
+    "apodo_steam":"ISI2"
+}
+
+//////// VIDEOJUEGO ////////
+
+{
+    "titulo":"Fornite"
+}

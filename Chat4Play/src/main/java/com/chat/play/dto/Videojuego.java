@@ -27,7 +27,7 @@ public class Videojuego {
 	private String titulo;
 	
 	@OneToMany
-	@JoinColumn(name="id_party")
+	@JoinColumn(name="id_videojuego")
 	private List<Party> party;
 	
 	public Videojuego() {
@@ -57,7 +57,7 @@ public class Videojuego {
 	}
 	
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Party")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "party")
 	public List<Party> getParty() {
 		return party;
 	}

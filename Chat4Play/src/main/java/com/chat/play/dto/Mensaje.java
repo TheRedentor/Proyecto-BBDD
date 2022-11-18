@@ -17,8 +17,10 @@ public class Mensaje {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_mensaje;
+	
 	@Column(name = "mensaje")
 	private String mensaje;
+	
 	@Column(name = "fecha")
 	private Date fecha;
 	

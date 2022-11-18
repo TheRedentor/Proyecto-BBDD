@@ -86,8 +86,6 @@ public class Party {
 	/**
 	 * @return the usuario
 	 */
-	@JsonIgnore
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "id_usuario")
 	public List<Usuario> getUsuario() {
 		return usuario;
 	}
@@ -102,6 +100,8 @@ public class Party {
 	/**
 	 * @return the mensaje
 	 */
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mensaje")
 	public List<Mensaje> getMensaje() {
 		return mensaje;
 	}
@@ -109,8 +109,6 @@ public class Party {
 	/**
 	 * @param mensaje the mensaje to set
 	 */
-	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id_mensaje")
 	public void setMensaje(List<Mensaje> mensaje) {
 		this.mensaje = mensaje;
 	}
