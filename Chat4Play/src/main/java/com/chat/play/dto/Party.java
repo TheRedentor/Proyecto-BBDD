@@ -25,7 +25,7 @@ public class Party {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_party;
 	
-	@Column(name="nombre")
+	@Column(name="nombre",unique=true)
 	private String nombre;
 	
 	@ManyToMany
