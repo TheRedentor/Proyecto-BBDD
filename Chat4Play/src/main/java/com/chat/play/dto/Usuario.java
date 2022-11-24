@@ -36,9 +36,6 @@ public class Usuario {
 	@Column (name="contrasenia")
 	private String contrasenia;
 	
-	@Column (name="apodo_steam")
-	private String apodo_steam;
-	
 	@ManyToMany(mappedBy = "usuario")
 	private List<Party>party;
 
@@ -60,15 +57,13 @@ public class Usuario {
 	 * @param apodo_steam
 	 * @param party
 	 */
-	public Usuario(Long id_usuario, String nombre, String apellidos, String apodo, String email, String contrasenia,
-			String apodo_steam, List<Party> party) {
+	public Usuario(Long id_usuario, String nombre, String apellidos, String apodo, String email, String contrasenia, List<Party> party) {
 		this.id_usuario = id_usuario;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.apodo = apodo;
 		this.email = email;
 		this.contrasenia = contrasenia;
-		this.apodo_steam = apodo_steam;
 		this.party = party;
 	}
 
@@ -172,17 +167,7 @@ public class Usuario {
 	/**
 	 * @return the apodo_steam
 	 */
-	public String getApodo_steam() {
-		return apodo_steam;
-	}
-
-
-	/**
-	 * @param apodo_steam the apodo_steam to set
-	 */
-	public void setApodo_steam(String apodo_steam) {
-		this.apodo_steam = apodo_steam;
-	}
+	
 
 
 	/**
@@ -206,7 +191,7 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario [id_usuario=" + id_usuario + ", nombre=" + nombre + ", apellidos=" + apellidos + ", apodo="
-				+ apodo + ", email=" + email + ", contrasenia=" + contrasenia + ", apodo_steam=" + apodo_steam + "]";
+				+ apodo + ", email=" + email + ", contrasenia=" + contrasenia + ", party=" + party + "]";
 	}
 }
 

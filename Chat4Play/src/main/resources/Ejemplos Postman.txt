@@ -1,8 +1,15 @@
+//////// MENSAJE /////////
+{
+    "fecha":"2022/03/03 04:04:04",
+    "mensaje":"Hola que tal estas Joel del Olmo",
+    "usuario":{"id_usuario":1},
+    "party":{"id_party":1}
+}
 ////// PARTY ///////
 {
     "nombre":"Chat5444",
     "videojuego":{
-        "id_videojuego":2
+        "id_videojuego":1
     },
     "usuario": [{
         "id_usuario":1

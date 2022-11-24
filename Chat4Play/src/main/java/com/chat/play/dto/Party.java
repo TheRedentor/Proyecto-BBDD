@@ -40,7 +40,7 @@ public class Party {
 	private Videojuego videojuego;
 	
 	@OneToMany
-	@JoinColumn(name="id_mensaje")
+	@JoinColumn(name="id_party")
 	private List<Mensaje> mensaje;
 	
 	public Party() {

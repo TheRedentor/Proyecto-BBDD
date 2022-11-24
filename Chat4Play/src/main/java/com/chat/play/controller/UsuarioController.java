@@ -58,7 +58,6 @@ public class UsuarioController {
 		usuario_seleccionado.setApodo(usuario.getApodo());
 		usuario_seleccionado.setEmail(usuario.getEmail());
 		usuario_seleccionado.setContrasenia(usuario.getContrasenia());
-		usuario_seleccionado.setApodo_steam(usuario.getApodo_steam());
 
 		
 		usuario_actualizado = usuarioServiceImpl.actualizarUsuario(usuario_seleccionado);

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,6 +18,7 @@ import com.chat.play.service.MensajeServiceImpl;
 @RestController
 @RequestMapping("/api")
 public class MensajeController {
+	
 	@Autowired
 	MensajeServiceImpl mensajeServiceImpl;
 	
@@ -27,7 +29,7 @@ public class MensajeController {
 	
 	
 	@PostMapping("/mensajes")
-	public Mensaje salvarMensaje(Mensaje mensaje) {
+	public Mensaje salvarMensaje(@RequestBody Mensaje mensaje) {
 		
 		return mensajeServiceImpl.guardarMensaje(mensaje);
 	}
@@ -46,7 +48,7 @@ public class MensajeController {
 	}
 	
 	@PutMapping("/mensajes/{id_mensaje}")
-	public Mensaje actualizarMensaje(@PathVariable(name="id_mensaje")Long id_mensaje, Mensaje mensaje) {
+	public Mensaje actualizarMensaje(@PathVariable(name="id_mensaje")Long id_mensaje, @RequestBody Mensaje mensaje) {
 		
 		Mensaje mensaje_seleccionado= new Mensaje();
 		Mensaje mensaje_actualizado= new Mensaje();
