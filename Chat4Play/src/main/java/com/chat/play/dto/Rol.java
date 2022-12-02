@@ -1,12 +1,20 @@
 package com.chat.play.dto;
 
 
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -16,6 +24,14 @@ public class Rol {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_rol;
 	
+	@Column(name="rol")
+	private String rol;
+	
+	@OneToMany
+	@JoinColumn(name="id_rol")
+	private List<Usuario> usuario;
+	
+	
 	public Rol() {
 		
 	}
@@ -23,9 +39,11 @@ public class Rol {
 	/**
 	 * @param id_rol
 	 */
-	public Rol(Long id_rol) {
+	public Rol(Long id_rol,List<Usuario> usuario,String rol) {
 		//super();
 		this.id_rol = id_rol;
+		this.usuario=usuario;
+		this.rol=rol;
 	}
 
 	
@@ -44,11 +62,28 @@ public class Rol {
 	public void setId(Long id_rol) {
 		this.id_rol = id_rol;
 	}
-
 	
-	//Metodo impresion de datos por consola
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
+
+	@JsonIgnore
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "id_usuario")
+	public List<Usuario> getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(List<Usuario> usuario) {
+		this.usuario = usuario;
+	}
+
 	@Override
 	public String toString() {
-		return "Rol [id_rol=" + id_rol + "]";
+		return "Rol [id_rol=" + id_rol + ", rol=" + rol + ", usuario=" + usuario + "]";
 	}
+	
 }

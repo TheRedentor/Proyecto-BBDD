@@ -8,7 +8,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -36,6 +38,10 @@ public class Usuario {
 	@Column (name="contrasenia")
 	private String contrasenia;
 	
+	@ManyToOne
+	@JoinColumn(name="id_rol")
+	private Rol rol;
+	
 	@ManyToMany(mappedBy = "usuario")
 	private List<Party>party;
 
@@ -57,7 +63,7 @@ public class Usuario {
 	 * @param apodo_steam
 	 * @param party
 	 */
-	public Usuario(Long id_usuario, String nombre, String apellidos, String apodo, String email, String contrasenia, List<Party> party) {
+	public Usuario(Long id_usuario, String nombre, String apellidos, String apodo, String email, String contrasenia, List<Party> party,Rol rol) {
 		this.id_usuario = id_usuario;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -65,6 +71,7 @@ public class Usuario {
 		this.email = email;
 		this.contrasenia = contrasenia;
 		this.party = party;
+		this.rol=rol;
 	}
 
 
@@ -186,12 +193,22 @@ public class Usuario {
 	public void setParty(List<Party> party) {
 		this.party = party;
 	}
+	
+	public Rol getRol() {
+		return rol;
+	}
+
+
+	public void setRol(Rol rol) {
+		this.rol = rol;
+	}
 
 
 	@Override
 	public String toString() {
 		return "Usuario [id_usuario=" + id_usuario + ", nombre=" + nombre + ", apellidos=" + apellidos + ", apodo="
-				+ apodo + ", email=" + email + ", contrasenia=" + contrasenia + ", party=" + party + "]";
+				+ apodo + ", email=" + email + ", contrasenia=" + contrasenia + ", rol=" + rol + ", party=" + party
+				+ "]";
 	}
 }
 
