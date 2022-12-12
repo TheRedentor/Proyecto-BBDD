@@ -1,8 +1,8 @@
 # Proyecto-BBDD
 
-#Endpoints
+# ENDPOINTS
 
-# VIDEOJUEGOS
+#### VIDEOJUEGOS #####
 
 GET https://proyecto-bbdd-production-36ba.up.railway.app/api/videojuego
 
@@ -15,7 +15,7 @@ PUT https://proyecto-bbdd-production-36ba.up.railway.app/api/videojuego/:id
 DELETE https://proyecto-bbdd-production-36ba.up.railway.app/api/videojuego/:id
 
 
-# USUARIO 
+#### USUARIO ####
 
 GET https://proyecto-bbdd-production-36ba.up.railway.app/api/usuarios
 
@@ -28,7 +28,7 @@ PUT https://proyecto-bbdd-production-36ba.up.railway.app/api/usuario/:id
 DELETE https://proyecto-bbdd-production-36ba.up.railway.app/api/usuario/:id
 
 
-# MENSAJE
+#### MENSAJE ####
 
 GET https://proyecto-bbdd-production-36ba.up.railway.app/api/mensajes
 
@@ -41,7 +41,7 @@ PUT https://proyecto-bbdd-production-36ba.up.railway.app/api/mensajes/:id
 DELETE https://proyecto-bbdd-production-36ba.up.railway.app/api/mensajes/:id
 
 
-# PARTY
+#### PARTY ####
 
 GET https://proyecto-bbdd-production-36ba.up.railway.app/api/party
 
