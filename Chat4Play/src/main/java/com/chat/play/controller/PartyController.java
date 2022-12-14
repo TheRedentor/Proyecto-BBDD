@@ -69,5 +69,10 @@ public class PartyController {
 		partyServiceImpl.eliminarParty(id);
 	}
 	
+	@GetMapping("/party/nombre/{nombre}")
+	public List<Party> findByNombre(@PathVariable(name="nombre") String nombre){
+		 return partyServiceImpl.findByNombre(nombre);
+	}
+	
 	
 }

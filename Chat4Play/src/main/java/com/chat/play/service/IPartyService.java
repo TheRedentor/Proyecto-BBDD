@@ -14,4 +14,7 @@ public interface IPartyService {
 	public Party actualizarParty(Party party);
 	
 	public void eliminarParty(Long id);
+	
+	public List<Party> findByNombre(String nombre);
+	
 }
