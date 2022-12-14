@@ -46,4 +46,9 @@ public class PartyServiceImpl implements IPartyService {
 		
 	}
 
+	@Override
+	public List<Party> findByNombre(String nombre) {
+		// TODO Auto-generated method stub
+		return iPartyDAO.findByNombre(nombre);
+	}
 }
