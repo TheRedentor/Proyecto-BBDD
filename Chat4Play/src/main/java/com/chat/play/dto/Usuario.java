@@ -24,6 +24,9 @@ public class Usuario {
 	@Column (name="nombre")
 	private String nombre;
 	
+	@Column (name="img_avatar")
+	private String img_avatar;
+	
 	@Column (name="apellidos")
 	private String apellidos;
 	
@@ -65,6 +68,7 @@ public class Usuario {
 		this.email = email;
 		this.contrasenia = contrasenia;
 		this.party = party;
+		this.img_avatar = "";
 	}
 
 
@@ -167,8 +171,6 @@ public class Usuario {
 	/**
 	 * @return the apodo_steam
 	 */
-	
-
 
 	/**
 	 * @return the party
@@ -177,6 +179,16 @@ public class Usuario {
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "id_party")
 	public List<Party> getParty() {
 		return party;
+	}
+
+
+	public String getImg_avatar() {
+		return img_avatar;
+	}
+
+
+	public void setImg_avatar(String img_avatar) {
+		this.img_avatar = img_avatar;
 	}
 
 
@@ -190,9 +202,11 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [id_usuario=" + id_usuario + ", nombre=" + nombre + ", apellidos=" + apellidos + ", apodo="
-				+ apodo + ", email=" + email + ", contrasenia=" + contrasenia + ", party=" + party + "]";
+		return "Usuario [id_usuario=" + id_usuario + ", nombre=" + nombre + ", img_avatar=" + img_avatar
+				+ ", apellidos=" + apellidos + ", apodo=" + apodo + ", email=" + email + ", contrasenia=" + contrasenia
+				+ ", party=" + party + "]";
 	}
+
 }
 
 

@@ -31,6 +31,8 @@ public class UsuarioController {
 	@PostMapping("/usuario")
 	public Usuario guardarrUsuario(@RequestBody Usuario usuario) {
 		
+		usuario.setImg_avatar("../assets/images/avatar2.png");
+		
 		return usuarioServiceImpl.guardarUsuario(usuario);
 	}
 	
@@ -58,6 +60,7 @@ public class UsuarioController {
 		usuario_seleccionado.setApodo(usuario.getApodo());
 		usuario_seleccionado.setEmail(usuario.getEmail());
 		usuario_seleccionado.setContrasenia(usuario.getContrasenia());
+		usuario_seleccionado.setImg_avatar(usuario.getImg_avatar());
 
 		
 		usuario_actualizado = usuarioServiceImpl.actualizarUsuario(usuario_seleccionado);
