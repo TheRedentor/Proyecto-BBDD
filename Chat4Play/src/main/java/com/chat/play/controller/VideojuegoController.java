@@ -55,7 +55,6 @@ public class VideojuegoController {
 		videojuego_seleccionado= videojuegoServiceImpl.videojuego_x_id(id);
 		
 		videojuego_seleccionado.setTitulo(videojuego.getTitulo());
-		videojuego_seleccionado.setId_videojuego(videojuego.getId_videojuego());
 		
 		videojuego_actualizado = videojuegoServiceImpl.actualizarVideojuego(videojuego_seleccionado);
 		

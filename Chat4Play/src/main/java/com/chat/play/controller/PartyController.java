@@ -53,7 +53,6 @@ public class PartyController {
 		
 		party_seleccionado= partyServiceImpl.party_x_id(id);
 		
-		party_seleccionado.setId_party(party.getId_party());
 		party_seleccionado.setNombre(party.getNombre());
 		party_seleccionado.setVideojuego(party.getVideojuego());
 		
