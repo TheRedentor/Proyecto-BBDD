@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -45,6 +46,9 @@ public class Usuario {
 	@ManyToMany(mappedBy = "usuario")
 	private List<Party>party;
 
+	@OneToMany
+    @JoinColumn(name="id_usuario")
+    private List<Mensaje> mensaje;
 	
 	/**
 	 * 

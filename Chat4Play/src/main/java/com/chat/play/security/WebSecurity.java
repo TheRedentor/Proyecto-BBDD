@@ -5,6 +5,7 @@ import static com.chat.play.security.Constants.REGISTER_URL;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -23,7 +24,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
 	private UserDetailsService userDetailsService;
 
-	public WebSecurity(UserDetailsService userDetailsService) {
+	public WebSecurity(@Lazy UserDetailsService userDetailsService) {
 		this.userDetailsService = userDetailsService;
 	}
 
