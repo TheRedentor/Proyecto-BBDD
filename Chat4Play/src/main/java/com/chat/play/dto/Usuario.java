@@ -41,7 +41,9 @@ public class Usuario {
 	
 	@ManyToMany(mappedBy = "usuario")
 	private List<Party>party;
-
+	
+	@Column (name="rol")
+	private String rol;
 	
 	/**
 	 * 
@@ -60,7 +62,7 @@ public class Usuario {
 	 * @param apodo_steam
 	 * @param party
 	 */
-	public Usuario(Long id_usuario, String nombre, String apellidos, String apodo, String email, String contrasenia, List<Party> party) {
+	public Usuario(Long id_usuario, String nombre, String apellidos, String apodo, String email, String contrasenia, List<Party> party, String rol) {
 		this.id_usuario = id_usuario;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -69,6 +71,7 @@ public class Usuario {
 		this.contrasenia = contrasenia;
 		this.party = party;
 		this.img_avatar = "";
+		this.rol=rol;
 	}
 
 
@@ -170,7 +173,12 @@ public class Usuario {
 
 	/**
 	 * @return the apodo_steam
+	 * 
+	 * 
 	 */
+	
+	
+
 
 	/**
 	 * @return the party
@@ -179,6 +187,16 @@ public class Usuario {
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "id_party")
 	public List<Party> getParty() {
 		return party;
+	}
+
+
+	public String getRol() {
+		return rol;
+	}
+
+
+	public void setRol(String rol) {
+		this.rol = rol;
 	}
 
 
@@ -204,7 +222,7 @@ public class Usuario {
 	public String toString() {
 		return "Usuario [id_usuario=" + id_usuario + ", nombre=" + nombre + ", img_avatar=" + img_avatar
 				+ ", apellidos=" + apellidos + ", apodo=" + apodo + ", email=" + email + ", contrasenia=" + contrasenia
-				+ ", party=" + party + "]";
+				+ ", party=" + party + ", rol=" + rol + "]";
 	}
 
 }

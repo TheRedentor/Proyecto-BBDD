@@ -25,7 +25,8 @@ public class Mensaje {
 	private String mensaje;
 	
 	@Column(name = "fecha")
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd HH:mm:ss")
+	//@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd HH:mm:ss")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
 	private Date fecha;
 	
 	@ManyToOne

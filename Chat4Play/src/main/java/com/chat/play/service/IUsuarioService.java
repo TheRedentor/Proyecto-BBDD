@@ -17,6 +17,7 @@ public interface IUsuarioService {
 		
 		public void eliminarUsuario(Long id);
 	
+		public Usuario findBynombre(String nombre); 
 
 }
 
