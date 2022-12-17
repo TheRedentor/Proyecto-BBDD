@@ -57,12 +57,14 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api -->
 		    <groupId>io.jsonwebtoken</groupId>
-		    <artifactId>jjwt-api</artifactId>
-		    <version>0.11.5</version>
+		    <artifactId>jjwt</artifactId>
+		    <version>0.9.0</version>
 		</dependency>
+
+
 	</dependencies>
+	
 
 	<build>
 	<resources>

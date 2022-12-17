@@ -1,8 +1,10 @@
 package com.chat.play.dao;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.chat.play.dto.Usuario;
 
-public interface IUsuarioDAO extends JpaRepository<Usuario, Long>{
-	 Usuario findByNombre(String nombre);
+public interface IUsuarioDAO extends JpaRepository<Usuario, Long> {
+
+	Usuario findByUsername(String username);
 }
