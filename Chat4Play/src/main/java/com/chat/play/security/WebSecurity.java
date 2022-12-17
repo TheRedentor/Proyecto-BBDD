@@ -3,6 +3,9 @@ package com.chat.play.security;
 import static com.chat.play.security.Constants.LOGIN_URL;
 import static com.chat.play.security.Constants.REGISTER_URL;
 
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
@@ -24,7 +27,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
 	private UserDetailsService userDetailsService;
 
-	public WebSecurity(@Lazy UserDetailsService userDetailsService) {
+	public WebSecurity(UserDetailsService userDetailsService) {
 		this.userDetailsService = userDetailsService;
 	}
 

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.chat.play.dao.IUsuarioDAO;
 import com.chat.play.dto.Usuario;
 import com.chat.play.service.UsuarioServiceImpl;
 
@@ -88,6 +89,11 @@ public class UsuarioController {
 	@DeleteMapping("/usuario/{id}")
 	public void eliminarUsuario(@PathVariable(name="id")Long id) {
 		usuarioServiceImpl.eliminarUsuario(id);
+	}
+	
+	@GetMapping("/usuario/nombre/{nombre}")
+	public Usuario findByUsername(@PathVariable(name="nombre") String nombre){
+		 return usuarioServiceImpl.findByNombre(nombre);
 	}
 	
 	

@@ -28,9 +28,6 @@ public class Rol {
 	@Column(name="rol")
 	private String rol;
 	
-	@OneToMany
-	@JoinColumn(name="id_rol")
-	private List<Usuario> usuario;
 	
 	
 	public Rol() {
@@ -40,10 +37,9 @@ public class Rol {
 	/**
 	 * @param id_rol
 	 */
-	public Rol(Long id_rol,List<Usuario> usuario,String rol) {
+	public Rol(Long id_rol,String rol) {
 		//super();
 		this.id_rol = id_rol;
-		this.usuario=usuario;
 		this.rol=rol;
 	}
 
@@ -71,20 +67,4 @@ public class Rol {
 	public void setRol(String rol) {
 		this.rol = rol;
 	}
-
-	@JsonIgnore
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "id_usuario")
-	public List<Usuario> getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(List<Usuario> usuario) {
-		this.usuario = usuario;
-	}
-
-	@Override
-	public String toString() {
-		return "Rol [id_rol=" + id_rol + ", rol=" + rol + ", usuario=" + usuario + "]";
-	}
-	
 }

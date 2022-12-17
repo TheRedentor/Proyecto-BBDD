@@ -30,7 +30,7 @@ public class Usuario {
 	@Column (name="apellidos")
 	private String apellidos;
 	
-	@Column (name="apodo")
+	@Column (name="apodo",unique=true)
 	private String apodo;
 	
 	@Column (name="email")
@@ -39,9 +39,8 @@ public class Usuario {
 	@Column (name="contrasenia")
 	private String contrasenia;
 	
-	@ManyToOne
-	@JoinColumn(name="id_rol")
-	private Rol rol;
+	@Column (name="rol")
+	private String rol;
 	
 	@ManyToMany(mappedBy = "usuario")
 	private List<Party>party;
@@ -67,7 +66,7 @@ public class Usuario {
 	 * @param apodo_steam
 	 * @param party
 	 */
-	public Usuario(Long id_usuario, String nombre, String apellidos, String apodo, String email, String contrasenia, List<Party> party,Rol rol) {
+	public Usuario(Long id_usuario, String nombre, String apellidos, String apodo, String email, String contrasenia, List<Party> party,String rol) {
 		this.id_usuario = id_usuario;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -197,13 +196,14 @@ public class Usuario {
 	public void setParty(List<Party> party) {
 		this.party = party;
 	}
-	
-	public Rol getRol() {
+
+
+	public String getRol() {
 		return rol;
 	}
 
 
-	public void setRol(Rol rol) {
+	public void setRol(String rol) {
 		this.rol = rol;
 	}
 
@@ -212,8 +212,9 @@ public class Usuario {
 	public String toString() {
 		return "Usuario [id_usuario=" + id_usuario + ", nombre=" + nombre + ", apellidos=" + apellidos + ", apodo="
 				+ apodo + ", email=" + email + ", contrasenia=" + contrasenia + ", rol=" + rol + ", party=" + party
-				+ "]";
+				+ ", mensaje=" + mensaje + "]";
 	}
+	
 }
 
 
