@@ -6,5 +6,5 @@ import com.chat.play.dto.Usuario;
 
 public interface IUsuarioDAO extends JpaRepository<Usuario, Long> {
 
-	Usuario findBynombre(String nombre);
+	Usuario findByUsername(String username);
 }

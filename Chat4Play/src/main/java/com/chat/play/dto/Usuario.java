@@ -22,7 +22,7 @@ public class Usuario {
 	private Long id_usuario;
 	
 	@Column (name="nombre")
-	private String nombre;
+	private String username;
 	
 	@Column (name="img_avatar")
 	private String img_avatar;
@@ -37,7 +37,7 @@ public class Usuario {
 	private String email;
 	
 	@Column (name="contrasenia")
-	private String contrasenia;
+	private String password;
 	
 	@ManyToMany(mappedBy = "usuario")
 	private List<Party>party;
@@ -61,14 +61,14 @@ public class Usuario {
 	 * @param contrasenia
 	 * @param apodo_steam
 	 * @param party
+	 * @param rol
 	 */
-	public Usuario(Long id_usuario, String nombre, String apellidos, String apodo, String email, String contrasenia, List<Party> party, String rol) {
-		this.id_usuario = id_usuario;
-		this.nombre = nombre;
+	public Usuario(String nombre, String apellidos, String apodo, String email, String contrasenia, List<Party> party, String rol) {
+		this.username = nombre;
 		this.apellidos = apellidos;
 		this.apodo = apodo;
 		this.email = email;
-		this.contrasenia = contrasenia;
+		this.password = contrasenia;
 		this.party = party;
 		this.img_avatar = "";
 		this.rol=rol;
@@ -94,16 +94,16 @@ public class Usuario {
 	/**
 	 * @return the nombre
 	 */
-	public String getNombre() {
-		return nombre;
+	public String getUsername() {
+		return username;
 	}
 
 
 	/**
 	 * @param nombre the nombre to set
 	 */
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setUsername(String nombre) {
+		this.username = nombre;
 	}
 
 
@@ -158,16 +158,16 @@ public class Usuario {
 	/**
 	 * @return the contrasenia
 	 */
-	public String getContrasenia() {
-		return contrasenia;
+	public String getPassword() {
+		return password;
 	}
 
 
 	/**
 	 * @param contrasenia the contrasenia to set
 	 */
-	public void setContrasenia(String contrasenia) {
-		this.contrasenia = contrasenia;
+	public void setPassword(String contrasenia) {
+		this.password = contrasenia;
 	}
 
 
@@ -220,8 +220,8 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [id_usuario=" + id_usuario + ", nombre=" + nombre + ", img_avatar=" + img_avatar
-				+ ", apellidos=" + apellidos + ", apodo=" + apodo + ", email=" + email + ", contrasenia=" + contrasenia
+		return "Usuario [id_usuario=" + id_usuario + ", username=" + username + ", img_avatar=" + img_avatar
+				+ ", apellidos=" + apellidos + ", apodo=" + apodo + ", email=" + email + ", password=" + password
 				+ ", party=" + party + ", rol=" + rol + "]";
 	}
 

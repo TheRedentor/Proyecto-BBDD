@@ -1,7 +1,6 @@
 package com.chat.play.controller;
 
 import java.util.List;
-
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -57,9 +56,7 @@ public class UsuarioController {
 	
 	@PostMapping("/usuario")
 	public Usuario guardarrUsuario(@RequestBody Usuario usuario) {
-		
-		usuario.setImg_avatar("../assets/images/avatar2.png");
-		usuario.setContrasenia(bCryptPasswordEncoder.encode(usuario.getContrasenia()));
+		usuario.setPassword(bCryptPasswordEncoder.encode(usuario.getPassword()));
 		
 		return iUsuarioDAO.save(usuario);
 	}
@@ -83,11 +80,11 @@ public class UsuarioController {
 		
 		usuario_seleccionado= iUsuarioDAO.getById(id);
 		
-		usuario_seleccionado.setNombre(usuario.getNombre());
+		usuario_seleccionado.setUsername(usuario.getUsername());
 		usuario_seleccionado.setApellidos(usuario.getApellidos());
 		usuario_seleccionado.setApodo(usuario.getApodo());
 		usuario_seleccionado.setEmail(usuario.getEmail());
-		usuario_seleccionado.setContrasenia(bCryptPasswordEncoder.encode(usuario.getContrasenia()));
+		usuario_seleccionado.setPassword(bCryptPasswordEncoder.encode(usuario.getPassword()));
 		usuario_seleccionado.setImg_avatar(usuario.getImg_avatar());
 
 		

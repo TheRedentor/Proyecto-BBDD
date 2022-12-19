@@ -12,22 +12,14 @@ import com.chat.play.dao.IUsuarioDAO;
 import com.chat.play.dto.Usuario;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
-
-import com.chat.play.dao.IUsuarioDAO;
-import com.chat.play.dto.Usuario;
-
 
 @Service
-public class UsuarioServiceImpl implements UserDetailsService {
+public class UsuarioDetailsServiceImpl implements UserDetailsService {
 	
 
 	private IUsuarioDAO iUsuarioDAO;
 
-	public UsuarioServiceImpl(IUsuarioDAO iUsuarioDAO) {
+	public UsuarioDetailsServiceImpl(IUsuarioDAO iUsuarioDAO) {
 		this.iUsuarioDAO = iUsuarioDAO;
 	}
 	
@@ -55,6 +47,7 @@ public class UsuarioServiceImpl implements UserDetailsService {
 		return iUsuarioDAO.findBynombre(username);
 	}
 	
+	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Usuario usuario = iUsuarioDAO.findBynombre(username);
 		if (usuario == null) {
