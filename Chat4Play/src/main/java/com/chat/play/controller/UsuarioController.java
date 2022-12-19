@@ -93,6 +93,11 @@ public class UsuarioController {
 		return usuario_actualizado;
 	}
 	
+	@GetMapping("/usuarios/nombre/{apodo}")
+	public Usuario getUsuario(@PathVariable String apodo) {
+		return iUsuarioDAO.findByApodo(apodo);
+	}
+	
 	@DeleteMapping("/usuario/{id}")
 	public void eliminarUsuario(@PathVariable(name="id")Long id) {
 		iUsuarioDAO.deleteById(id);

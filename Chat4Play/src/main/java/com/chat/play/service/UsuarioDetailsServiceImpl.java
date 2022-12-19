@@ -44,12 +44,12 @@ public class UsuarioDetailsServiceImpl implements UserDetailsService {
 	}
 
 	public Usuario findByUsername(String username) {
-		return iUsuarioDAO.findByUsername(username);
+		return iUsuarioDAO.findByApodo(username);
 	}
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Usuario usuario = iUsuarioDAO.findByUsername(username);
+		Usuario usuario = iUsuarioDAO.findByApodo(username);
 		if (usuario == null) {
 			throw new UsernameNotFoundException(username);
 		}
