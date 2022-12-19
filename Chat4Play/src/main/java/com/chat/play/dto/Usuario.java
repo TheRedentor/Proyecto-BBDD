@@ -30,7 +30,7 @@ public class Usuario {
 	@Column (name="apellidos")
 	private String apellidos;
 	
-	@Column (name="apodo")
+	@Column (name="apodo", unique=true)
 	private String apodo;
 	
 	@Column (name="email")
