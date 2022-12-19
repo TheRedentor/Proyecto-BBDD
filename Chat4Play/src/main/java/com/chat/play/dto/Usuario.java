@@ -21,7 +21,7 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_usuario;
 	
-	@Column (name="nombre")
+	@Column (name="username")
 	private String username;
 	
 	@Column (name="img_avatar")
@@ -36,7 +36,7 @@ public class Usuario {
 	@Column (name="email")
 	private String email;
 	
-	@Column (name="contrasenia")
+	@Column (name="password")
 	private String password;
 	
 	@ManyToMany(mappedBy = "usuario")

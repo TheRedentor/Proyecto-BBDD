@@ -54,7 +54,7 @@ public class UsuarioController {
 	}
 	
 	
-	@PostMapping("/usuario")
+	@PostMapping("/register")
 	public Usuario guardarrUsuario(@RequestBody Usuario usuario) {
 		usuario.setPassword(bCryptPasswordEncoder.encode(usuario.getPassword()));
 		
