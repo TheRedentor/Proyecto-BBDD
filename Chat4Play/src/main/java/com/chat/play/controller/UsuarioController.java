@@ -57,7 +57,7 @@ public class UsuarioController {
 	
 	@PostMapping("/register")
 	public Usuario guardarrUsuario(@RequestBody Usuario usuario) {
-		usuario.setImg_avatar("../../assets/images/avatares/logo_azul.png");
+		usuario.setImg_avatar("../assets/images/avatares/logo_azul.png");
 		usuario.setContrasenia(bCryptPasswordEncoder.encode(usuario.getContrasenia()));
 		
 		return iUsuarioDAO.save(usuario);
