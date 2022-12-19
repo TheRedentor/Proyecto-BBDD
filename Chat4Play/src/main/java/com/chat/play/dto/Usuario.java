@@ -21,8 +21,8 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_usuario;
 	
-	@Column (name="username")
-	private String username;
+	@Column (name="nombre")
+	private String nombre;
 	
 	@Column (name="img_avatar")
 	private String img_avatar;
@@ -36,8 +36,8 @@ public class Usuario {
 	@Column (name="email")
 	private String email;
 	
-	@Column (name="password")
-	private String password;
+	@Column (name="contrasenia")
+	private String contrasenia;
 	
 	@ManyToMany(mappedBy = "usuario")
 	private List<Party>party;
@@ -64,13 +64,13 @@ public class Usuario {
 	 * @param rol
 	 */
 	public Usuario(String nombre, String apellidos, String apodo, String email, String contrasenia, List<Party> party, String rol) {
-		this.username = nombre;
+		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.apodo = apodo;
 		this.email = email;
-		this.password = contrasenia;
+		this.contrasenia = contrasenia;
 		this.party = party;
-		this.img_avatar = "";
+		this.img_avatar = "src/assets/images/avatares/logo_azul";
 		this.rol=rol;
 	}
 
@@ -94,17 +94,7 @@ public class Usuario {
 	/**
 	 * @return the nombre
 	 */
-	public String getUsername() {
-		return username;
-	}
-
-
-	/**
-	 * @param nombre the nombre to set
-	 */
-	public void setUsername(String nombre) {
-		this.username = nombre;
-	}
+	
 
 
 	/**
@@ -112,6 +102,26 @@ public class Usuario {
 	 */
 	public String getApellidos() {
 		return apellidos;
+	}
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public String getContrasenia() {
+		return contrasenia;
+	}
+
+
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
 	}
 
 
@@ -154,32 +164,6 @@ public class Usuario {
 		this.email = email;
 	}
 
-
-	/**
-	 * @return the contrasenia
-	 */
-	public String getPassword() {
-		return password;
-	}
-
-
-	/**
-	 * @param contrasenia the contrasenia to set
-	 */
-	public void setPassword(String contrasenia) {
-		this.password = contrasenia;
-	}
-
-
-	/**
-	 * @return the apodo_steam
-	 * 
-	 * 
-	 */
-	
-	
-
-
 	/**
 	 * @return the party
 	 */
@@ -220,11 +204,12 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [id_usuario=" + id_usuario + ", username=" + username + ", img_avatar=" + img_avatar
-				+ ", apellidos=" + apellidos + ", apodo=" + apodo + ", email=" + email + ", password=" + password
+		return "Usuario [id_usuario=" + id_usuario + ", nombre=" + nombre + ", img_avatar=" + img_avatar
+				+ ", apellidos=" + apellidos + ", apodo=" + apodo + ", email=" + email + ", contrasenia=" + contrasenia
 				+ ", party=" + party + ", rol=" + rol + "]";
 	}
 
+	
 }
 
 

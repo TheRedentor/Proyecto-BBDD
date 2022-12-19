@@ -56,7 +56,8 @@ public class UsuarioController {
 	
 	@PostMapping("/register")
 	public Usuario guardarrUsuario(@RequestBody Usuario usuario) {
-		usuario.setPassword(bCryptPasswordEncoder.encode(usuario.getPassword()));
+		usuario.setImg_avatar("src/assets/images/avatares/logo_azul");
+		usuario.setContrasenia(bCryptPasswordEncoder.encode(usuario.getContrasenia()));
 		
 		return iUsuarioDAO.save(usuario);
 	}
@@ -80,11 +81,11 @@ public class UsuarioController {
 		
 		usuario_seleccionado= iUsuarioDAO.getById(id);
 		
-		usuario_seleccionado.setUsername(usuario.getUsername());
+		usuario_seleccionado.setNombre(usuario.getNombre());
 		usuario_seleccionado.setApellidos(usuario.getApellidos());
 		usuario_seleccionado.setApodo(usuario.getApodo());
 		usuario_seleccionado.setEmail(usuario.getEmail());
-		usuario_seleccionado.setPassword(bCryptPasswordEncoder.encode(usuario.getPassword()));
+		usuario_seleccionado.setContrasenia(bCryptPasswordEncoder.encode(usuario.getContrasenia()));
 		usuario_seleccionado.setImg_avatar(usuario.getImg_avatar());
 
 		

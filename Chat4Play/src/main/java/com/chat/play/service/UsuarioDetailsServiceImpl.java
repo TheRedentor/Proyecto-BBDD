@@ -53,7 +53,7 @@ public class UsuarioDetailsServiceImpl implements UserDetailsService {
 		if (usuario == null) {
 			throw new UsernameNotFoundException(username);
 		}
-		return new User(usuario.getApodo(), usuario.getPassword(), emptyList());
+		return new User(usuario.getApodo(), usuario.getContrasenia(), emptyList());
 	}
 }
 
