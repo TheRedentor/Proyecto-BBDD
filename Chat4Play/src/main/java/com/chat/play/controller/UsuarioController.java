@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -56,7 +57,7 @@ public class UsuarioController {
 	
 	@PostMapping("/register")
 	public Usuario guardarrUsuario(@RequestBody Usuario usuario) {
-		usuario.setImg_avatar("src/assets/images/avatares/logo_azul");
+		usuario.setImg_avatar("../../assets/images/avatares/logo_azul.png");
 		usuario.setContrasenia(bCryptPasswordEncoder.encode(usuario.getContrasenia()));
 		
 		return iUsuarioDAO.save(usuario);

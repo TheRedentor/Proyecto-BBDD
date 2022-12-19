@@ -70,7 +70,7 @@ public class Usuario {
 		this.email = email;
 		this.contrasenia = contrasenia;
 		this.party = party;
-		this.img_avatar = "src/assets/images/avatares/logo_azul";
+		this.img_avatar = "../../assets/images/avatares/logo_azul.png";
 		this.rol=rol;
 	}
 
