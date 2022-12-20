@@ -55,6 +55,7 @@ public class PartyController {
 		
 		party_seleccionado.setNombre(party.getNombre());
 		party_seleccionado.setVideojuego(party.getVideojuego());
+		party_seleccionado.setUsuario(party.getUsuario());
 		
 		party_actualizado = partyServiceImpl.actualizarParty(party_seleccionado);
 		
