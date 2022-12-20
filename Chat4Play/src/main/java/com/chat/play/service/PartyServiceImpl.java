@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.chat.play.dao.IPartyDAO;
 import com.chat.play.dto.Party;
+import com.chat.play.dto.Usuario;
 
 @Service
 public class PartyServiceImpl implements IPartyService {
@@ -50,5 +51,13 @@ public class PartyServiceImpl implements IPartyService {
 	public List<Party> findByNombre(String nombre) {
 		// TODO Auto-generated method stub
 		return iPartyDAO.findByNombre(nombre);
+	}
+
+	@Override
+	public List<Usuario> usuariosParty(Long id) {
+		// TODO Auto-generated method stub
+		Party aux = null;
+		aux = iPartyDAO.findById(id).get();
+		return aux.getUsuario();
 	}
 }

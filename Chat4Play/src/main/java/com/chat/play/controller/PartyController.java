@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chat.play.dto.Party;
+import com.chat.play.dto.Usuario;
 import com.chat.play.service.PartyServiceImpl;
 
 @RestController
@@ -72,6 +73,11 @@ public class PartyController {
 	@GetMapping("/party/nombre/{nombre}")
 	public List<Party> findByNombre(@PathVariable(name="nombre") String nombre){
 		 return partyServiceImpl.findByNombre(nombre);
+	}
+	
+	@GetMapping("/party/usuario/{id}")
+	public List<Usuario> usuariosParty(@PathVariable(name="id") Long id){
+		 return partyServiceImpl.usuariosParty(id);
 	}
 	
 	
