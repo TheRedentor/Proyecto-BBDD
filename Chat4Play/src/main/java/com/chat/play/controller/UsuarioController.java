@@ -69,7 +69,7 @@ public class UsuarioController {
 		
 		Usuario usuario_xid= new Usuario();
 		
-		usuario_xid=iUsuarioDAO.getById(id);
+		usuario_xid=iUsuarioDAO.findById(id).get();
 				
 		return usuario_xid;
 	}
@@ -80,13 +80,34 @@ public class UsuarioController {
 		Usuario usuario_seleccionado= new Usuario();
 		Usuario usuario_actualizado= new Usuario();
 		
-		usuario_seleccionado= iUsuarioDAO.getById(id);
+		usuario_seleccionado= iUsuarioDAO.findById(id).get();
 		
 		usuario_seleccionado.setNombre(usuario.getNombre());
 		usuario_seleccionado.setApellidos(usuario.getApellidos());
 		usuario_seleccionado.setApodo(usuario.getApodo());
 		usuario_seleccionado.setEmail(usuario.getEmail());
 		usuario_seleccionado.setContrasenia(bCryptPasswordEncoder.encode(usuario.getContrasenia()));
+		usuario_seleccionado.setImg_avatar(usuario.getImg_avatar());
+
+		
+		usuario_actualizado = iUsuarioDAO.save(usuario_seleccionado);
+				
+		return usuario_actualizado;
+	}
+	
+	@PutMapping("/usuario/put2/{id}")
+	public Usuario actualizarUsuario2(@PathVariable(name="id")Long id,@RequestBody Usuario usuario) {
+		
+		Usuario usuario_seleccionado= new Usuario();
+		Usuario usuario_actualizado= new Usuario();
+		
+		usuario_seleccionado= iUsuarioDAO.findById(id).get();
+		
+		usuario_seleccionado.setNombre(usuario.getNombre());
+		usuario_seleccionado.setApellidos(usuario.getApellidos());
+		usuario_seleccionado.setApodo(usuario.getApodo());
+		usuario_seleccionado.setEmail(usuario.getEmail());
+		usuario_seleccionado.setContrasenia(usuario.getContrasenia());
 		usuario_seleccionado.setImg_avatar(usuario.getImg_avatar());
 
 		
